@@ -181,7 +181,3 @@ func giveToOuput(outputBins map[int][]int, binID, value int) {
 		outputBins[binID] = append(outputBins[binID], value)
 	}
 }
-
-func problem2(lines []string) {
-
-}
