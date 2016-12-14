@@ -79,7 +79,7 @@ func getHashManyTimes(seed string, n int) string {
 }
 
 func find3Same(value string) byte {
-	for i := 0; i < len(value)-3; i++ {
+	for i := 0; i < len(value)-2; i++ {
 		if value[i] == value[i+1] && value[i+1] == value[i+2] {
 			return value[i]
 		}
@@ -89,7 +89,7 @@ func find3Same(value string) byte {
 
 func find5Same(value string) []string {
 	res := []string{}
-	for i := 0; i < len(value)-5; i++ {
+	for i := 0; i < len(value)-4; i++ {
 		if value[i] == value[i+1] && value[i+1] == value[i+2] && value[i+2] == value[i+3] && value[i+3] == value[i+4] {
 			res = append(res, strings.Repeat(string(value[i]), 5))
 			i += 4
