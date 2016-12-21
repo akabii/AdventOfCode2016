@@ -22,13 +22,8 @@ func main() {
 
 	fmt.Println("Problem 1:", string(problem1([]byte("abcdefgh"), lines)))
 
-	var i, j = 0, len(lines) - 1
-	for i < j {
-		tmp := lines[i]
-		lines[i] = lines[j]
-		lines[j] = tmp
-		i++
-		j--
+	for i, j := 0, len(lines)-1; i < j; i, j = i+1, j-1 {
+		lines[i], lines[j] = lines[j], lines[i]
 	}
 
 	fmt.Println("Problem 2:", string(problem2([]byte("fbgdceah"), lines)))
@@ -147,18 +142,13 @@ func move(password []byte, x, y int) []byte {
 }
 
 func swap(password []byte, x, y int) []byte {
-	tmp := password[x]
-	password[x] = password[y]
-	password[y] = tmp
-
+	password[x], password[y] = password[y], password[x]
 	return password
 }
 
 func reverse(password []byte, x, y int) []byte {
-	for x < y {
+	for ; x < y; x, y = x+1, y-1 {
 		password = swap(password, x, y)
-		x++
-		y--
 	}
 
 	return password
